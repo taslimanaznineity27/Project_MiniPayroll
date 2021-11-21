@@ -12,16 +12,16 @@ class ControllerUsers
             ) {
                 // chacking this informations is in DB Employees Table 
                 // declearing table name 
-                $table = "employees";
-                $items = "user_name";
+                $table = "users";
+                $items = "username";
                 $value = $_POST["loginUser"];
                 // now controller send this data to Model if user are exists on DB 
                 // first create instance of Empolyees Model then passing this data to object 
                 $response = EmployeesModel::mdlShowEmpolyee($table, $items, $value);
-                // var_dump($response["user_name"]);
+                // var_dump($response["username"]);
 
                 // now if response have data ,then set it to session data to enter this system or again login from 
-                if ($response["user_name"] == $_POST["loginUser"] && $response["password"] == $_POST["loginPass"]) {
+                if ($response["username"] == $_POST["loginUser"] && $response["password"] == $_POST["loginPass"]) {
                     // now set session data to ok 
                     $_SESSION["loggedIn"] = "ok";
                     echo '
@@ -35,4 +35,18 @@ class ControllerUsers
             }
         }
     }
+
+    // for showe user 
+    static public function crtShowUsers($item, $value)
+    {
+        // declearing table name 
+        $table = "users";
+        // now controller send this data to Model if user are exists on DB 
+        // first create instance of Empolyees Model then passing this data to object 
+        $response = EmployeesModel::mdlShowEmpolyee($table, $item, $value);
+        // var_dump($response);
+        // now if response have data ,then set it to session data to enter this system or again login from
+        return $response;
+
+    }  
 }

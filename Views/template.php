@@ -25,18 +25,14 @@ session_start();
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="Views/dist/css/skins/_all-skins.min.css">
-
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-
   <!-- Google Font -->
-
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-
   <!-- jQuery 3 -->
   <script src="Views/bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap 3.3.7 -->
@@ -55,7 +51,6 @@ session_start();
   })
 </script> -->
 </head>
-
 <body class="hold-transition skin-blue sidebar-collapse sidebar-mini login-page">
   <!-- Site wrapper -->
   <div class="wrapper">
@@ -69,6 +64,12 @@ session_start();
         if (
           $_GET["route"] == 'home' ||
           $_GET["route"] == 'users' ||
+          $_GET["route"] == 'companypolicy' ||
+          $_GET["route"] == 'companie' ||
+          $_GET["route"] == 'locations' ||
+          $_GET["route"] == 'department' ||
+          $_GET["route"] == 'designations' ||
+          $_GET["route"] == 'announcement' ||
           $_GET["route"] == 'logout'
         ) {
           include "modules/" . $_GET["route"] . ".php";
@@ -78,23 +79,13 @@ session_start();
       } else {
         include "modules/home.php";
       }
-
-
       include 'modules/footer.php';
 
       echo '</div>';
     } else {
       include "modules/login.php";
     }
-
-
-
-
-
     ?>
-
-
-
 
     <script src="Views/js/template.js"></script>
 </body>

@@ -14,7 +14,7 @@
         <a href="#">
           <i class="fa fa-meetup"></i>
 
-          <span>Setup Payroll</span>
+          <span>Organizatio</span>
 
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
@@ -23,26 +23,50 @@
 
         <ul class="treeview-menu">
           <li>
-            <a href="#">
+            <a href="companie">
               <i class="fa fa-algolia"></i>
 
-              <span>User Role</span>
+              <span>Company</span>
             </a>
           </li>
 
           <li>
-            <a href="#">
+            <a href="department">
               <i class="fa fa-circle"></i>
 
-              <span>Create Degic </span>
+              <span>Department </span>
             </a>
           </li>
 
           <li>
-            <a href="#">
+            <a href="locations">
               <i class="fa fa-circle"></i>
 
-              <span> report</span>
+              <span> Locations</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="designations">
+              <i class="fa fa-circle"></i>
+
+              <span> Designation</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="announcement">
+              <i class="fa fa-circle"></i>
+
+              <span> Announcements</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="companypolicy">
+              <i class="fa fa-circle"></i>
+
+              <span> Company Pollicy </span>
             </a>
           </li>
         </ul>
@@ -191,7 +215,7 @@
         <a href="users">
           <i class="fa fa-user"></i>
 
-          <span>Employees management</span>
+          <span> Employees management</span>
         </a>
       </li>
 
@@ -237,7 +261,7 @@
             <a href="#">
               <i class="fa fa-circle"></i>
 
-              <span>Manage sales</span>
+              <span>Manual Attendance</span>
             </a>
           </li>
 
@@ -245,7 +269,7 @@
             <a href="#">
               <i class="fa fa-circle"></i>
 
-              <span>Create sale</span>
+              <span>Machine Attendance</span>
             </a>
           </li>
 
@@ -253,7 +277,7 @@
             <a href="#">
               <i class="fa fa-circle"></i>
 
-              <span>Sales report</span>
+              <span>Test</span>
             </a>
           </li>
         </ul>
