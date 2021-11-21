@@ -22,86 +22,42 @@
               <th style="width:10px">#</th>
               <th>Company</th>
               <th>Email</th>
-              <th>City</th>
-              <th>Country</th>
               <th>Phone</th>
+              <th>Country</th>
+              <th>City</th>
               <th>Aciton </th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>HRM ONE</td>
-              <td>hr@gmail.com</td>
-              <td>0936945587</td>
-              <td>Dhaka</td>
-              <td>Dhaka</td>
-              
-              <td>
-
-                <div class="btn-group">
-
-                  <button class="btn btn-warning btnEditUser"><i class="fa fa-pencil"></i></button>
-                  <button class="btn btn-warning btnEditUser"><i class="fa fa-pan"></i></button>
-                  <button class="btn btn-danger btnDeleteUser"><i class="fa fa-times"></i></button>
-
-                </div>
-
-              </td>
-              </td>
-
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>HRM ONE</td>
-              <td>hr@gmail.com</td>
-              <td>0936945587</td>
-              <td>Dhaka</td>
-              <td>Dhaka</td>
-              
-              <td>
-
-                <div class="btn-group">
-
-                  <button class="btn btn-warning btnEditUser"><i class="fa fa-pencil"></i></button>
-                  <button class="btn btn-warning btnEditUser"><i class="fa fa-pan"></i></button>
-                  <button class="btn btn-danger btnDeleteUser"><i class="fa fa-times"></i></button>
-
-                </div>
-
-              </td>
-              </td>
-
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>HRM ONE</td>
-              <td>hr@gmail.com</td>
-              <td>0936945587</td>
-              <td>Dhaka</td>
-              <td>Dhaka</td>
-              
-              <td>
-
-                <div class="btn-group">
-
-                  <button class="btn btn-warning btnEditUser"><i class="fa fa-pencil"></i></button>
-                  <button class="btn btn-warning btnEditUser"><i class="fa fa-pan"></i></button>
-                  <button class="btn btn-danger btnDeleteUser"><i class="fa fa-times"></i></button>
-
-                </div>
-
-              </td>
-              </td>
-
-            </tr>
+            <?php
+            $item = null;
+            $value = null;
+            $companies = CompanyController::ctrShowCompanies($item, $value);
+            // var_dump($companies);
+            foreach ($companies as $key => $company) {
+              echo '<tr>
+                      <td>' . ($key + 1) . '</td>
+                      <td>' . $company["company_name"] . '</td>
+                      <td>' . $company["email"] . '</td>
+                      <td>' . $company["contact_no"] . '</td>
+                      <td>' . $company["location_id"] . '</td>
+                      <td>' . $company["location_id"] . '</td>
+                      <td>
+                        <div class="btn-group">
+                          <button class="btn btn-warning btnEditCompany"><i class="fa fa-pencil"></i></button>
+                          <button class="btn btn-danger btnDeleteCompany"><i class="fa fa-times"></i></button>
+                        </div>
+                      </td>
+                    </tr>';
+            }
+            ?>
           </tbody>
 
         </table>
       </div>
 
 
-      
+
       <div class="box-footer">Footer</div>
     </div>
   </section>

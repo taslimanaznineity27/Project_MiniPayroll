@@ -51,7 +51,6 @@ session_start();
   })
 </script> -->
 </head>
-
 <body class="hold-transition skin-blue sidebar-collapse sidebar-mini login-page">
   <!-- Site wrapper -->
   <div class="wrapper">
