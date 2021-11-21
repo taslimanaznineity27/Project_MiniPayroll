@@ -28,47 +28,30 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Manager</td>
-              <td>Alica</td>
-              <td>HRM ONE</td>
-              <td>Active</td>
+          <?php
+          $item = null;
+          $value = null;
+          $designations = DesignationsController::ctrShowDesignations($item, $value);
+          // var_dump($designations);
+
+          foreach ($designations as $key => $value) {
+            echo '<tr>
+              <td>' . ($key + 1) . '</td>
+              <td>' . $value["designation_name"] . '</td>
+              <td>' . $value["company_id"] . '</td>
+              <td>' . $value["department_id"] . '</td>
+              <td>' . $value["is_active"] . '</td>
               <td>
-
                 <div class="btn-group">
-
-                  <button class="btn btn-warning btnEditUser"><i class="fa fa-pencil"></i></button>
-
-                  <button class="btn btn-danger btnDeleteUser"><i class="fa fa-times"></i></button>
-
+                  <button class="btn btn-warning btnEditDesignation" data-toggle="modal" data-target="#editDesignation" idDesignation="' . $value["id"] . '"><i class="fa fa-pencil"></i></button>
+                  <button class="btn btn-danger btnDeleteDesignation" idDesignation="' . $value["id"] . '"><i class="fa fa-times"></i></button>
                 </div>
-
               </td>
-              
+            </tr>';
+          }
 
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Officer</td>
-              <td>Alica</td>
-              <td>HRM TWO</td>
-              <td>Active</td>
-              <td>
 
-                <div class="btn-group">
-
-                  <button class="btn btn-warning btnEditUser"><i class="fa fa-pencil"></i></button>
-
-                  <button class="btn btn-danger btnDeleteUser"><i class="fa fa-times"></i></button>
-
-                </div>
-
-              </td>
-              
-
-            </tr>
-
+          ?>
           </tbody>
 
         </table>

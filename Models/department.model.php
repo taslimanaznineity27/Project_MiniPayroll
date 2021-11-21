@@ -1,8 +1,7 @@
-<?php 
+<?php
 require_once "db_connections.php";
-
-class CompanyModel{
-    static public function mdlShowCompany($table, $item, $value){
+class DepartmentModel{
+    static public function mdlShowDepartment($table, $item, $value){
         if($item != null){
             $sql = "SELECT * FROM $table WHERE $item = :$item";
 

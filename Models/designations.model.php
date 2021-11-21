@@ -1,8 +1,8 @@
-<?php 
+<?php
 require_once "db_connections.php";
 
-class CompanyModel{
-    static public function mdlShowCompany($table, $item, $value){
+class DesignationsModel{
+    static public function mdlShowDesignations($table, $item, $value){
         if($item != null){
             $sql = "SELECT * FROM $table WHERE $item = :$item";
 
@@ -13,7 +13,8 @@ class CompanyModel{
             $stmt->execute();
 
             return $stmt->fetch();
-        }else{
+        }
+        else{ 
             $sql = "SELECT * FROM $table";
 
             $stmt = Connection::connect()->prepare($sql);
@@ -22,9 +23,5 @@ class CompanyModel{
 
             return $stmt->fetchAll();
         }
-          $stmt -> close();
-
-		$stmt = null;
-    }
-
+} 
 }

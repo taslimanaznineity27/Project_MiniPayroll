@@ -29,28 +29,31 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Test</td>
-              <td>CSE</td>
-              <td>HRM ONE</td>
-              <td>01/02/2021</td>
-              <td>05/02/2021</td>
-              
+          <?php 
+          $item = null;
+          $value = null;
+          $announcements = AnnouncementContorller::ctrShowAnnouncement($item, $value);
+          // var_dump($announcements);
+
+          foreach ($announcements as $key => $announcement) {
+            echo '<tr>
+              <td>'.($key+1).'</td>
+              <td>'.$announcement["title"].'</td>
+              <td>'.$announcement["department_id"].'</td>
+              <td>'.$announcement["company_id"].'</td>
+              <td>'.$announcement["start_date"].'</td>
+              <td>'.$announcement["end_date"].'</td>
               <td>
-
                 <div class="btn-group">
-
-                  <button class="btn btn-warning btnEditUser"><i class="fa fa-pencil"></i></button>
-                  <button class="btn btn-warning btnEditUser"><i class="fa fa-pan"></i></button>
-                  <button class="btn btn-danger btnDeleteUser"><i class="fa fa-times"></i></button>
-
+                  <button class="btn btn-warning btnEditAnnouncement" idAnnouncement="'.$announcement["id"].'" data-toggle="modal" data-target="#editAnnouncement"><i class="fa fa-pencil"></i></button>
+                  <button class="btn btn-danger btnDeleteAnnouncement" idAnnouncement="'.$announcement["id"].'"><i class="fa fa-times"></i></button>
                 </div>
-
               </td>
-              </td>
+            </tr>';
 
-            </tr>
+          }
+
+          ?>
 
           </tbody>
 

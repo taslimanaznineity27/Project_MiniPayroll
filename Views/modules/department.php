@@ -28,26 +28,31 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>CSE</td>
-              <td>Alica</td>
-              <td>HRM ONE</td>
-              <td>Active</td>
-              <td>
+          <?php
+            $item = null;
+            $value = null;
 
-                <div class="btn-group">
+            $departments = DepartmentController::ctrShowDepartments($item,$value);
+            // var_dump($departments);
+            foreach ($departments as $key => $department) {
+              echo '<tr>
+                      <td>'.($key+1).'</td>
+                      <td>'.$department["department_name"].'</td>
+                      <td>'.$department["company_id"].'</td>
+                      <td>'.$department["department_head"].'</td>
+                      <td>'.$department["is_active"].'</td>
+                      <td>
+                        <div class="btn-group"
+                          <button class="btn btn-warning btnEditDepartment" ><i class="fa fa-pencil"></i></button>
+                          <button class="btn btn-danger btnDeleteDepartment"><i class="fa fa-times"></i></button>
+                        </div>
+                      </td>
+                    </tr>';
+            }
 
-                  <button class="btn btn-warning btnEditUser"><i class="fa fa-pencil"></i></button>
 
-                  <button class="btn btn-danger btnDeleteUser"><i class="fa fa-times"></i></button>
+          ?>
 
-                </div>
-
-              </td>
-              </td>
-
-            </tr>
 
           </tbody>
 

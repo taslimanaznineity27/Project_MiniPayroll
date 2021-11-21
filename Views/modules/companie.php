@@ -29,19 +29,19 @@
             </tr>
           </thead>
           <tbody>
-            <?php
+           <?php
             $item = null;
             $value = null;
             $companies = CompanyController::ctrShowCompanies($item, $value);
             // var_dump($companies);
             foreach ($companies as $key => $company) {
               echo '<tr>
-                      <td>' . ($key + 1) . '</td>
-                      <td>' . $company["company_name"] . '</td>
-                      <td>' . $company["email"] . '</td>
-                      <td>' . $company["contact_no"] . '</td>
-                      <td>' . $company["location_id"] . '</td>
-                      <td>' . $company["location_id"] . '</td>
+                      <td>'.($key+1).'</td>
+                      <td>'.$company["company_name"].'</td>
+                      <td>'.$company["email"].'</td>
+                      <td>'.$company["contact_no"].'</td>
+                      <td>'.$company["location_id"].'</td>
+                      <td>'.$company["location_id"].'</td>
                       <td>
                         <div class="btn-group">
                           <button class="btn btn-warning btnEditCompany"><i class="fa fa-pencil"></i></button>
@@ -49,15 +49,15 @@
                         </div>
                       </td>
                     </tr>';
-            }
-            ?>
+                  }
+           ?>
           </tbody>
 
         </table>
       </div>
 
 
-
+      
       <div class="box-footer">Footer</div>
     </div>
   </section>
