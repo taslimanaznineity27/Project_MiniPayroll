@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2021 at 09:42 AM
+-- Generation Time: Nov 21, 2021 at 12:05 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.21
 
@@ -40,6 +40,13 @@ CREATE TABLE `announcement` (
   `is_notify` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `announcement`
+--
+
+INSERT INTO `announcement` (`id`, `title`, `start_date`, `end_date`, `summary`, `description`, `company_id`, `department_id`, `added_by`, `is_notify`) VALUES
+(1, 'Demo Announcement', '2021-11-02 16:58:05', '2021-11-08 16:58:05', 'Demo Summary', 'Demo Summary', 1, 1, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -60,6 +67,13 @@ CREATE TABLE `companies` (
   `company_logo` varchar(200) NOT NULL,
   `is_active` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `companies`
+--
+
+INSERT INTO `companies` (`id`, `company_name`, `company_type`, `trading_name`, `registration_no`, `contact_no`, `email`, `website`, `tax_no`, `location_id`, `company_logo`, `is_active`) VALUES
+(1, 'Demo', 'Accessorices ', 'Demo', '03416546BGR', '6546541155', 'demo@gmail.com', 'www.demo.com', '5648976', 1, 'logo.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -332,6 +346,13 @@ CREATE TABLE `departments` (
   `is_active` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `departments`
+--
+
+INSERT INTO `departments` (`id`, `department_name`, `company_id`, `department_head`, `is_active`) VALUES
+(1, 'CSE', 1, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -345,6 +366,13 @@ CREATE TABLE `designations` (
   `department_id` int(11) NOT NULL,
   `is_active` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `designations`
+--
+
+INSERT INTO `designations` (`id`, `designation_name`, `company_id`, `department_id`, `is_active`) VALUES
+(1, 'Officer', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -493,13 +521,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `announcement`
 --
 ALTER TABLE `announcement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `countries`
@@ -511,13 +539,13 @@ ALTER TABLE `countries`
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `designations`
 --
 ALTER TABLE `designations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `general_settings`
