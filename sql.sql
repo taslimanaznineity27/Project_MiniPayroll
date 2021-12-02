@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2021 at 12:05 PM
+-- Generation Time: Dec 02, 2021 at 11:27 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.21
 
@@ -377,6 +377,58 @@ INSERT INTO `designations` (`id`, `designation_name`, `company_id`, `department_
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `employee_info`
+--
+
+CREATE TABLE `employee_info` (
+  `id` int(11) NOT NULL,
+  `full_name` varchar(200) NOT NULL,
+  `email` varchar(500) NOT NULL,
+  `phone` varchar(200) NOT NULL,
+  `address_name_id` int(11) NOT NULL,
+  `gender` varchar(20) NOT NULL,
+  `image` varchar(200) NOT NULL,
+  `fname` varchar(100) NOT NULL,
+  `mname` varchar(100) NOT NULL,
+  `religion` varchar(50) NOT NULL,
+  `id_no` varchar(50) NOT NULL,
+  `dob` date NOT NULL,
+  `joining_date` date NOT NULL,
+  `company_id` int(11) NOT NULL,
+  `dept_id` int(11) NOT NULL,
+  `desig_id` int(11) NOT NULL,
+  `salary` double(10,2) NOT NULL,
+  `status` tinyint(2) NOT NULL,
+  `conttries_id` int(11) NOT NULL,
+  `ref_emp_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `employee_info`
+--
+
+INSERT INTO `employee_info` (`id`, `full_name`, `email`, `phone`, `address_name_id`, `gender`, `image`, `fname`, `mname`, `religion`, `id_no`, `dob`, `joining_date`, `company_id`, `dept_id`, `desig_id`, `salary`, `status`, `conttries_id`, `ref_emp_id`) VALUES
+(1, 'Demo Employee', 'Demo@gmail.com', '01564654654', 1, 'male', '', 'Demo Father name', 'Demo Mother Name', 'Islam', 'dep-test 01', '1990-12-02', '2021-12-02', 1, 1, 1, 25550.00, 1, 1, 14);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `emp_sall_log`
+--
+
+CREATE TABLE `emp_sall_log` (
+  `id` int(11) NOT NULL,
+  `employee_id` int(11) NOT NULL,
+  `prv_salary` int(11) NOT NULL,
+  `present_salary` int(11) NOT NULL,
+  `incriments_salary` int(11) NOT NULL,
+  `incriments_type` varchar(200) NOT NULL,
+  `effected_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `general_settings`
 --
 
@@ -490,6 +542,18 @@ ALTER TABLE `designations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `employee_info`
+--
+ALTER TABLE `employee_info`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `emp_sall_log`
+--
+ALTER TABLE `emp_sall_log`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `general_settings`
 --
 ALTER TABLE `general_settings`
@@ -546,6 +610,18 @@ ALTER TABLE `departments`
 --
 ALTER TABLE `designations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `employee_info`
+--
+ALTER TABLE `employee_info`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `emp_sall_log`
+--
+ALTER TABLE `emp_sall_log`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `general_settings`
