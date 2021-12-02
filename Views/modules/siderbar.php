@@ -76,7 +76,7 @@
         <a href="#">
           <i class="fa fa-meetup"></i>
 
-          <span>Employee </span>
+          <span>Employee Management</span>
 
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
@@ -93,10 +93,10 @@
           </li>
 
           <li>
-            <a href="#">
+            <a href="employeeinfo">
               <i class="fa fa-circle"></i>
 
-              <span>Employee Informations </span>
+              <span> Employee Informations </span>
             </a>
           </li>
 

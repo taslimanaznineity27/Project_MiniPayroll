@@ -69,7 +69,11 @@ session_start();
           $_GET["route"] == 'locations' ||
           $_GET["route"] == 'department' ||
           $_GET["route"] == 'designations' ||
-          $_GET["route"] == 'announcement' ||
+          $_GET["route"] == 'announcement'||
+          $_GET["route"] == 'employeeinfo'||
+          $_GET["route"] == 'addemployee' ||
+
+          
           $_GET["route"] == 'logout'
         ) {
           include "modules/" . $_GET["route"] . ".php";

@@ -7,6 +7,7 @@ require_once "Controllers/company.controller.php";
 require_once "Controllers/department.controller.php";
 require_once "Controllers/designations.controller.php";
 require_once "Controllers/announcement.controller.php";
+require_once "Controllers/employeeinfo.controller.php";
 
 
 
@@ -17,6 +18,7 @@ require_once "Models/company.model.php";
 require_once "Models/department.model.php";
 require_once "Models/designations.model.php";
 require_once "Models/announcement.model.php";
+require_once "Models/employeeinfo.model.php";
 // department
 
 $template = new ControllersTemplate();
