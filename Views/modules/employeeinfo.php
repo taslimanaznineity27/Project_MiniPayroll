@@ -17,29 +17,17 @@
     </ol>
 
   </section>
-
   <section class="content">
-
     <div class="box">
-
       <div class="box-header with-border">
-
         <button class="btn btn-primary">
           <a href="addemployee" style="color: white;">Add Employee</a>
-
-
         </button>
-
       </div>
-
       <div class="box-body">
-
         <table class="table table-bordered table-striped dt-responsive tables" width="100%">
-
           <thead>
-
             <tr>
-
               <th style="width:10px">#</th>
               <th>Name Of Employee</th>
               <th>Card No</th>
@@ -50,7 +38,6 @@
               <th>Company Name</th>
               <th>Departments</th>
               <th>Designation</th>
-
               <th>Status</th>
               <th>Photo</th>
               <th>Actions</th>
@@ -126,9 +113,8 @@
 
                       <div class="btn-group">
 
-                        <button class="btn btn-warning btnEditUser" idUser="' . $value["id"] . '" data-toggle="modal" data-target="#editUser"><i class="fa fa-pencil"></i></button>
-                        <button class="btn btn-warning btnEditUser" idUser="' . $value["id"] . '" data-toggle="modal" data-target="#editUser"><i class="fa fa-pencil"></i></button>
-                        <button class="btn btn-danger btnDeleteUser" userId="' . $value["id"] . '" username="' . $value["full_name"] . '" userPhoto="' . $value["image"] . '"><i class="fa fa-times"></i></button>
+                        <a href="viewempprofile/' . $value["id"] . '" class="btn btn-warning btn-xs"><i class="fa fa-eye"></i></a>                        
+                        <button class="btn btn-danger btn-xs btnDeleteUser" userId="' . $value["id"] . '" username="' . $value["full_name"] . '" userPhoto="' . $value["image"] . '"><i class="fa fa-times"></i></button>
 
                       </div>  
 
@@ -150,5 +136,3 @@
   </section>
 
 </div>
-
-

@@ -11,7 +11,12 @@
   <section class="content">
     <div class="box">
       <div class="box-header with-border">
-        <h3 class="box-title">Add Emlopee Informations</h3>
+        <button class="btn btn-primary">
+          <a href="employeeinfo" style="color: white;">Employee List</a>
+        </button>
+      </div>
+      <div class="box-header with-border">
+        <h3 class="box-title">Add Employee Informations</h3>
         <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
             <i class="fa fa-minus"></i>
@@ -27,24 +32,24 @@
             <div class="col-sm-6">
               <h3 class="box-title">Personal Information</h3>
               <div class="form-group">
-                <label for="exampleInputEmail1">Full Name</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter First Name">
+                <label for="full_name">Full Name</label>
+                <input type="text" class="form-control" id="full_name" name="full_name" placeholder="Enter First Name">
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Father Name</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Last Name">
+                <label for="fname">Father Name</label>
+                <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter Last Name">
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Mother Name</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                <label for="mname">Mother Name</label>
+                <input type="text" class="form-control" id="mname" name="mname" placeholder="Enter email">
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Phone</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Phone">
+                <label for="phone">Phone</label>
+                <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter Phone">
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Email</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Address">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Address">
               </div>
 
             </div>
@@ -52,12 +57,12 @@
               <h4 class="box-title">Officeail Information</h4>
               <div class="form-group">
                 <label for="exampleInputEmail1">Company Name</label>
-                <select class="form-control">
+                <select class="form-control" id="company_id" name="company_id">
                   <option>Select Company Name</option>
                   <?php
                   $item = null;
                   $value1 = null;
-                  $company_name = CompanyController::ctrShowCompanies($item, $com_value);
+                  $company_name = CompanyController::ctrShowCompanies($item, $value1);
                   foreach ($company_name as $key => $value) {
                     echo '<option value="' . $value["id"] . '">' . $value["company_name"] . '</option>';
                   }
@@ -66,12 +71,12 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Departments</label>
-                <select class="form-control">
+                <select class="form-control" id="dept_id" name="dept_id">
                   <option>Select Departments</option>
                   <?php
                   $item = null;
                   $value1 = null;
-                  $company_name = DepartmentController::ctrShowDepartments($item, $com_value);
+                  $company_name = DepartmentController::ctrShowDepartments($item, $value1);
                   foreach ($company_name as $key => $value) {
                     echo '<option value="' . $value["id"] . '">' . $value["department_name"] . '</option>';
                   }
@@ -81,13 +86,13 @@
               </div>
 
               <div class="form-group">
-                <label for="exampleInputEmail1">Designations</label>
-                <select class="form-control">
+                <label for="desig_id" id="desig_id" name="desig_id">Designations</label>
+                <select class="form-control" id="desig_id" name="desig_id">
                   <option>Select Designations</option>
                   <?php
                   $item = null;
                   $value1 = null;
-                  $company_name = DesignationsController::ctrShowDesignations($item, $com_value);
+                  $company_name = DesignationsController::ctrShowDesignations($item, $value1);
                   foreach ($company_name as $key => $value) {
                     echo '<option value="' . $value["id"] . '">' . $value["designation_name"] . '</option>';
                   }
@@ -96,7 +101,7 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Religion</label>
-                <select class="form-control">
+                <select class="form-control" name="religion" id="religion">
                   <option>Select Religion</option>
                   <option value="Islam">Islam</option>
                   <option value="Hindu">Hindu</option>
@@ -105,7 +110,7 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Sex</label>
-                <select class="form-control">
+                <select class="form-control" name="gender" id="gender">
                   <option>Select Sex</option>
                   <option>Male</option>
                   <option>Female</option>
@@ -115,21 +120,21 @@
             <div class="col-sm-3">
               <h4 class="box-title">Other Information</h4>
               <div class="form-group">
-                <label for="exampleInputEmail1">Date of Birth</label>
-                <input type="date" class="form-control" id="exampleInputEmail1" placeholder="Enter Date of Birth">
+                <label for="Date of Birth">Date of Birth</label>
+                <input type="date" class="form-control" id="dob" name="dob" placeholder="Enter Date of Birth">
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Date of Joining</label>
-                <input type="date" class="form-control" id="exampleInputEmail1" placeholder="Enter Date of Joining">
+                <input type="date" class="form-control" id="joining_date" name="joining_date" placeholder="Enter Date of Joining">
               </div>
 
               <div class="form-group">
                 <label for="exampleInputEmail1">Salary</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Salary">
+                <input type="text" class="form-control" id="salary" name="salary" placeholder="Enter Salary">
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Country Name</label>
-                <select class="form-control">
+                <select class="form-control" name="conttries_id" id="conttries_id">
                   <option>Select Country</option>
                   <?php
 
@@ -145,7 +150,7 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputFile">File input</label>
-                <input type="file" id="exampleInputFile">
+                <input type="file" id="image" name="image">
                 <img class="thumbnail preview" src="views/img/users/default/anonymous.png" width="100px">
                 <p class="help-block">Upload Your JPGE Image</p>
               </div>
@@ -161,7 +166,12 @@
                 <button class="btn btn-info btn-block btn-flat"> Update Informations</button>
               </div>
             </div>
+            <?php
+            $createEmployee = new EmployeeController();
+            $createEmployee->ctrCreateEmployee();
+            ?>
           </form>
+
         </div>
       </div>
     </div>
