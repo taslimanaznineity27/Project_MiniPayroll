@@ -6,6 +6,16 @@ class EmployeeController{
         $response = EmployeeModel::showEmployeeList($table,$item,$value);
         return $response;
     }
+    static public function crtShowEmployee($item,$value){
+        $table = "employee_info";
+        if(isset($_GET['userId'])){
+            $response = EmployeeModel::showEmployeeList($table,$item,$value);
+            // var_dump($response);
+            return $response;
+        }
+
+       
+    }
     static public function ctrCreateEmployee(){
         if(isset($_POST["full_name"])){
             if( 
@@ -118,4 +128,10 @@ class EmployeeController{
                 
         }
     }
+
+    // static public function ctrViewEmployee($id){
+    //     $table = "employee_info";
+    //     $response = EmployeeModel::mdlViewEmployee($table,$id);
+    //     return $response;
+    // }
 }

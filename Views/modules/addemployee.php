@@ -60,7 +60,10 @@
                 <select class="form-control" id="company_id" name="company_id">
                   <option>Select Company Name</option>
                   <?php
-                  $item = null;
+
+use function PHPSTORM_META\type;
+
+$item = null;
                   $value1 = null;
                   $company_name = CompanyController::ctrShowCompanies($item, $value1);
                   foreach ($company_name as $key => $value) {
@@ -169,6 +172,7 @@
             <?php
             $createEmployee = new EmployeeController();
             $createEmployee->ctrCreateEmployee();
+            // var_dump($createEmployee);
             ?>
           </form>
 

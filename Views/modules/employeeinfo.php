@@ -54,13 +54,9 @@
             $value = null;
 
             $employeeList = EmployeeController::crtShowEmployeeList($item, $value);
-
             // var_dump($employeeList);
-
             foreach ($employeeList as $key => $value) {
-
               echo '
-
                   <tr>
                     <td>' . ($key + 1) . '</td>
                     <td>' . $value["full_name"] . '</td>
@@ -73,23 +69,17 @@
               $item = 'id';
               $com_value = $value["company_id"];
               $company_name = CompanyController::ctrShowCompanies($item, $com_value);
-
               // get Dep   name 
               $item = 'id';
               $dep_value = $value["dept_id"];
               $dept_name = DepartmentController::ctrShowDepartments($item, $dep_value);
-
               // get Degi   name
               $item = 'id';
               $deg_value = $value["desig_id"];
               $deg_name = DesignationsController::ctrShowDesignations($item, $deg_value);
-
-
               echo  '<td>' . $company_name['company_name'] . '</td>
                     <td>' . $dept_name['department_name'] . '</td>
                     <td>' . $deg_name['designation_name'] . '</td>';
-
-
               if ($value["status"] != 0) {
 
                 echo '<td><button class="btn btn-success btnActivate btn-xs" userId="' . $value["id"] . '" userStatus="0">Activated</button></td>';
@@ -97,7 +87,6 @@
 
                 echo '<td><button class="btn btn-danger btnActivate btn-xs" userId="' . $value["id"] . '" userStatus="1">Deactivated</button></td>';
               }
-
               if ($value["image"] != "") {
 
                 echo '<td><img src="' . $value["image"] . '" class="img-thumbnail" width="40px"></td>';
@@ -105,21 +94,14 @@
 
                 echo '<td><img src="views/img/users/default/anonymous.png" class="img-thumbnail" width="40px"></td>';
               }
-
-
               echo '
-
                     <td>
-
                       <div class="btn-group">
-
-                        <a href="viewempprofile/' . $value["id"] . '" class="btn btn-warning btn-xs"><i class="fa fa-eye"></i></a>                        
+                        
+                        <a href="index.php?route=viewempprofile&userId=' . $value["id"] . '" class="btn btn-info btn-xs"><i class="fa fa-eye"></i></a>                        
                         <button class="btn btn-danger btn-xs btnDeleteUser" userId="' . $value["id"] . '" username="' . $value["full_name"] . '" userPhoto="' . $value["image"] . '"><i class="fa fa-times"></i></button>
-
                       </div>  
-
                     </td>
-
                   </tr>';
             }
 
