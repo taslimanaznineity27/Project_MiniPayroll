@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2021 at 11:27 AM
+-- Generation Time: Dec 11, 2021 at 10:25 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.21
 
@@ -408,7 +408,32 @@ CREATE TABLE `employee_info` (
 --
 
 INSERT INTO `employee_info` (`id`, `full_name`, `email`, `phone`, `address_name_id`, `gender`, `image`, `fname`, `mname`, `religion`, `id_no`, `dob`, `joining_date`, `company_id`, `dept_id`, `desig_id`, `salary`, `status`, `conttries_id`, `ref_emp_id`) VALUES
-(1, 'Demo Employee', 'Demo@gmail.com', '01564654654', 1, 'male', '', 'Demo Father name', 'Demo Mother Name', 'Islam', 'dep-test 01', '1990-12-02', '2021-12-02', 1, 1, 1, 25550.00, 1, 1, 14);
+(1, 'Demo Employee', 'Demo@gmail.com', '01564654654', 1, 'male', '', 'Demo Father name', 'Demo Mother Name', 'Islam', 'dep-test 01', '1990-12-02', '2021-12-02', 1, 1, 1, 25550.00, 1, 1, 14),
+(2, 'demo q', 'dsfjlk@gmail.com', '64164351', 0, 'Male', 'views/img/users/675/675.jpg', 'fdsh', 'dkjfl', 'Islam', '00002202112', '2021-12-04', '2021-12-04', 1, 1, 1, 2165.00, 0, 20, 0),
+(3, 'Mdnejigh', 'JFA@MDSKL.COM', '054165', 0, 'Male', 'views/img/users/700/700.jpg', 'sdj', 'HRD', 'Islam', '00002202112', '2021-12-04', '2021-12-04', 1, 1, 1, 5646.00, 0, 20, 0),
+(4, 'Mdnejigh', 'JFA@MDSKL.COM', '054165', 0, 'Male', 'views/img/users/478/478.jpg', 'sdj', 'HRD', 'Islam', '00002202112', '2021-12-04', '2021-12-04', 1, 1, 1, 5646.00, 0, 20, 0),
+(5, 'Mdnejigh', 'JFA@MDSKL.COM', '054165', 0, 'Male', 'views/img/users/171/171.jpg', 'sdj', 'HRD', 'Islam', '00002202112', '2021-12-04', '2021-12-04', 1, 1, 1, 5646.00, 0, 20, 0),
+(6, 'Mdnejigh', 'JFA@MDSKL.COM', '054165', 0, 'Male', 'views/img/users/837/837.jpg', 'sdj', 'HRD', 'Islam', '00001202112', '2021-12-04', '2021-12-04', 1, 1, 1, 5646.00, 0, 20, 0),
+(7, 'Demo Qu', 'sdkaj@fmai.com', '321654165', 0, 'Male', 'views/img/users/153/153.jpg', 'DEwbn', 'ade', 'Islam', '00007202112', '2021-12-04', '2021-12-04', 1, 1, 1, 5616.00, 0, 20, 0),
+(8, 'dEMO INFO', 'FAR@GMAIL.COM', '4548', 0, 'Male', 'views/img/users/313/313.jpg', 'sOME THING ', 'SAJA', 'Islam', '00008202112', '2021-12-04', '2021-12-04', 1, 1, 1, 4575.00, 0, 20, 0),
+(9, 'Another Info', 'kak@gmail.com', '013446464', 0, 'Male', 'views/img/users/906/906.jpg', 'another info', 'aniop', 'Islam', '00009202112', '2021-12-04', '2021-12-04', 1, 1, 1, 548564.00, 0, 20, 0),
+(10, 'Some thing are incrimnetst', 'asdasd@gmail.com', '03164', 0, 'Male', 'views/img/users/315/315.jpg', 'father name', 'motyher nane ', 'Hindu', '20211200010', '2021-12-11', '2021-12-11', 1, 1, 1, 254454.00, 0, 20, 0),
+(11, 'Eity ', 'admin@jakj.com', '012548', 0, 'Male', 'views/img/users/976/976.jpg', 'eity mother ', 'faher name ', 'Islam', '20211200011', '2021-12-12', '2021-12-11', 1, 1, 1, 1542.00, 0, 20, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `emp_deg_log`
+--
+
+CREATE TABLE `emp_deg_log` (
+  `id` int(11) NOT NULL,
+  `employee_id` int(11) NOT NULL,
+  `promotion_type` varchar(200) NOT NULL,
+  `old_deg_id` int(11) NOT NULL,
+  `new_deg_id` int(11) NOT NULL,
+  `effected_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -419,11 +444,12 @@ INSERT INTO `employee_info` (`id`, `full_name`, `email`, `phone`, `address_name_
 CREATE TABLE `emp_sall_log` (
   `id` int(11) NOT NULL,
   `employee_id` int(11) NOT NULL,
-  `prv_salary` int(11) NOT NULL,
-  `present_salary` int(11) NOT NULL,
-  `incriments_salary` int(11) NOT NULL,
-  `incriments_type` varchar(200) NOT NULL,
-  `effected_date` date NOT NULL
+  `prv_salary` int(11) DEFAULT NULL,
+  `present_salary` int(11) DEFAULT NULL,
+  `incriments_salary` int(11) DEFAULT NULL,
+  `incriments_type` varchar(200) DEFAULT NULL,
+  `effected_date` date NOT NULL,
+  `remark` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -548,6 +574,12 @@ ALTER TABLE `employee_info`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `emp_deg_log`
+--
+ALTER TABLE `emp_deg_log`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `emp_sall_log`
 --
 ALTER TABLE `emp_sall_log`
@@ -615,7 +647,13 @@ ALTER TABLE `designations`
 -- AUTO_INCREMENT for table `employee_info`
 --
 ALTER TABLE `employee_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `emp_deg_log`
+--
+ALTER TABLE `emp_deg_log`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `emp_sall_log`
