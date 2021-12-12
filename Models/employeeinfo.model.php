@@ -91,26 +91,27 @@ class EmployeeModel
         $stmt->bindParam(":id_no", $new_id, PDO::PARAM_STR);
         $stmt->bindParam(":image", $data["image"], PDO::PARAM_STR);
         if ($stmt->execute()) {
-
-
-
-            // $table = "emp_sall_log";
-            // $salinc = Connection::connect()->prepare("INSERT INTO $table(	employee_id, prv_salary, present_salary, incriments_salary, incriments_type,effected_date,remark)VALUES (:employee_id, :prv_salary, :present_salary, :incriments_salary, :incriments_type, :effected_date, :remark))");
-            // $salinc->bindParam(":employee_id", $new_id, PDO::PARAM_INT);
-            // $salinc->bindParam(":prv_salary", $data["salary"], PDO::PARAM_STR);
-            // $salinc->bindParam(":present_salary", $data["salary"], PDO::PARAM_STR);
-            // $salinc->bindParam(":incriments_salary", 0, PDO::PARAM_STR);
-            // $salinc->bindParam(":remark", 'Ctraet at time', PDO::PARAM_STR);
-            // $salinc->bindParam(":effected_date", $data["joining_date"], PDO::PARAM_STR);
-            // $salinc->bindParam(":incriments_type", 1, PDO::PARAM_STR);
-            // if ($salinc->execute()) {
-            //     return "ok";
-            // } else {
-            //     return "error";
-            // }
-            // $salinc->close();
-            // $salinc = null;
-
+            // insert initial incriment info 
+            $table1 = "employee_info";
+            $item = "id_no";
+            $value = $new_id;
+            $last_id = EmployeeModel::showEmployeeList($table1, $item, $value);
+            var_dump($last_id["id"]);
+            $table2 = "emp_sall_log";
+            $salinc = Connection::connect()->prepare("INSERT INTO $table2(employee_id, prv_salary, present_salary, incriments_salary, incriments_type,effected_date,remark)VALUES (:employee_id, :prv_salary, :present_salary, :incriments_salary, :incriments_type, :effected_date, :remark))");
+            $salinc->bindParam(":employee_id", $last_id["id"], PDO::PARAM_INT);
+            $salinc->bindParam(":prv_salary", $data["salary"], PDO::PARAM_STR);
+            $salinc->bindParam(":present_salary", $data["salary"], PDO::PARAM_STR);
+            $salinc->bindParam(":incriments_salary", "0", PDO::PARAM_STR);
+            $salinc->bindParam(":remark", 'Ctraet at time', PDO::PARAM_STR);
+            $salinc->bindParam(":effected_date", $data["joining_date"], PDO::PARAM_STR);
+            $salinc->bindParam(":incriments_type", 'Intial', PDO::PARAM_STR);
+            if ($salinc->execute()) {
+                var_dump("ok");
+                return 'ok';
+            } else {
+                return "error";
+            }
 
 
             return 'ok';
@@ -118,6 +119,9 @@ class EmployeeModel
 
             return 'error';
         }
+            
+
+
 
         $stmt->close();
 

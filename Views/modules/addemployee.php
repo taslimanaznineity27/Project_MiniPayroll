@@ -53,6 +53,8 @@
               </div>
 
             </div>
+
+
             <div class="col-sm-3">
               <h4 class="box-title">Officeail Information</h4>
               <div class="form-group">
@@ -61,9 +63,9 @@
                   <option>Select Company Name</option>
                   <?php
 
-use function PHPSTORM_META\type;
 
-$item = null;
+
+                  $item = null;
                   $value1 = null;
                   $company_name = CompanyController::ctrShowCompanies($item, $value1);
                   foreach ($company_name as $key => $value) {
@@ -120,6 +122,8 @@ $item = null;
                 </select>
               </div>
             </div>
+
+            
             <div class="col-sm-3">
               <h4 class="box-title">Other Information</h4>
               <div class="form-group">

@@ -73,6 +73,17 @@ session_start();
           $_GET["route"] == 'employeeinfo'||
           $_GET["route"] == 'addemployee'||
           $_GET["route"] == 'viewempprofile'||
+          $_GET["route"] == 'empincriment'||
+          $_GET["route"] == 'emppromotion'||
+          $_GET["route"] == 'empleaveinfo'||
+          $_GET["route"] == 'empsalary'||
+          $_GET["route"] == 'empmonthsell'||
+          $_GET["route"] == 'empatten'||
+          $_GET["route"] == 'emppromotion'||
+          $_GET["route"] == 'emppromotion'||
+          $_GET["route"] == 'emppromotion'||
+          $_GET["route"] == 'emppromotion'||
+          $_GET["route"] == 'emppromotion'||
           $_GET["route"] == 'logout'
         ) {
           include "modules/" . $_GET["route"] . ".php";

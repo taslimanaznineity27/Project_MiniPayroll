@@ -10,20 +10,26 @@
 
         static public function crtCreateEmployeeincriments()
         {
-            if (isset($_POST["employee_id"])) {
+            if (isset($_POST["employee_id"]) && isset($_POST["incriments_salary"])) {
                 
                 $table = "emp_sall_log";
-                $data = array("employee_id" => $_POST["employee_id"]);
-                $data = array("incriments_salary" => $_POST["incriments_salary"]);
-                $data = array("incriments_type" => $_POST["incriments_type"]);
-                $data = array("effected_date" => $_POST["effected_date"]);
-                $data = array("present_salary" => $_POST["present_salary"]);
-                $data = array("remark" => $_POST["remark"]);
+
+                $data = array(
+                "employee_id" => $_POST["employee_id"],
+                "incriments_salary" => $_POST["incriments_salary"],
+                "incriments_type" => $_POST["incriments_type"],
+                "effected_date" => $_POST["effected_date"],
+                "present_salary" => $_POST["present_salary"],
+                "prv_salary" => $_POST["present_salary"],
+                "remark" => $_POST["remark"]
+                );
+                
+                // var_dump($data);
                 $answer = EmployeeincrimentsModel::mdlCreateEmployeeincriments($table, $data);
 
             if ($answer == "ok") {
 
-                echo '<br><div class="alert alert-danger">Incriments Added</div>';
+                echo '<div class="alert alert-danger">Incriments Added</div>';
                 echo '
                         <script>
                             windows.location = "employeeinfo"

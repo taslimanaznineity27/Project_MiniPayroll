@@ -27,15 +27,15 @@
                 $item = 'id';
                 $value = $_GET['userId'];
                 $employeeList = EmployeeController::crtShowEmployeeList($item, $value);
+                // var_dump($employeeList);
                 ?>
                 <div class="row">
-                    <form action="" method="post">
+                    <form method="POST" enctype="multipart/form-data">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Employee Name</label>
                                 <select name="employee_id" id="employee_id" class="form-control">
                                     <option value="<?php echo $employeeList['id']; ?>" readonly><?php echo $employeeList['full_name']; ?></option>
-
                                 </select>
                             </div>
                         </div>
@@ -67,7 +67,6 @@
                             <div class="form-group">
                                 <label for="">Incriment Description</label>
                                 <input type="hidden" name="present_salary" id="present_salary" value="<?php echo $employeeList['salary']; ?>">
-
                                 <textarea name="remark" id="remark" cols="4" rows="2" class="form-control"></textarea>
                             </div>
                         </div>
@@ -78,8 +77,6 @@
                         $createIncriment = new EmployeeincrimentsController();
                         $createIncriment->crtCreateEmployeeincriments();
                         ?>
-
-
                     </form>
                 </div>
 
