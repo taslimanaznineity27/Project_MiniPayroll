@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2021 at 10:25 AM
+-- Generation Time: Dec 13, 2021 at 06:16 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.21
 
@@ -11,7 +11,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-//DB Not update untill database make change 
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -418,7 +418,14 @@ INSERT INTO `employee_info` (`id`, `full_name`, `email`, `phone`, `address_name_
 (8, 'dEMO INFO', 'FAR@GMAIL.COM', '4548', 0, 'Male', 'views/img/users/313/313.jpg', 'sOME THING ', 'SAJA', 'Islam', '00008202112', '2021-12-04', '2021-12-04', 1, 1, 1, 4575.00, 0, 20, 0),
 (9, 'Another Info', 'kak@gmail.com', '013446464', 0, 'Male', 'views/img/users/906/906.jpg', 'another info', 'aniop', 'Islam', '00009202112', '2021-12-04', '2021-12-04', 1, 1, 1, 548564.00, 0, 20, 0),
 (10, 'Some thing are incrimnetst', 'asdasd@gmail.com', '03164', 0, 'Male', 'views/img/users/315/315.jpg', 'father name', 'motyher nane ', 'Hindu', '20211200010', '2021-12-11', '2021-12-11', 1, 1, 1, 254454.00, 0, 20, 0),
-(11, 'Eity ', 'admin@jakj.com', '012548', 0, 'Male', 'views/img/users/976/976.jpg', 'eity mother ', 'faher name ', 'Islam', '20211200011', '2021-12-12', '2021-12-11', 1, 1, 1, 1542.00, 0, 20, 0);
+(11, 'Eity ', 'admin@jakj.com', '012548', 0, 'Male', 'views/img/users/976/976.jpg', 'eity mother ', 'faher name ', 'Islam', '20211200011', '2021-12-12', '2021-12-11', 1, 1, 1, 1542.00, 0, 20, 0),
+(12, 'Test Inseart Model ', 'lka@ssda.com', '0332156', 0, 'Male', 'views/img/users/962/962.jpg', 'model', 'model Mothewr ', 'Islam', '20211200012', '2015-12-02', '2021-12-12', 1, 1, 1, 10000.00, 0, 4, 0),
+(13, 'final Test', 'lkjha@gmail.com', '032156465', 0, 'Male', 'views/img/users/440/440.jpg', 'fa', 'ma', 'Islam', '02010400013', '2011-12-31', '0201-04-25', 1, 1, 1, 2565.00, 0, 1, 0),
+(14, 'last Test ', 'kjakj@gmail.coiq', '03216546', 0, 'Male', 'views/img/users/488/488.jpg', 'Lst', 'as', 'Islam', '20211200014', '2021-12-12', '2021-12-12', 1, 1, 1, 165465.00, 0, 18, 0),
+(15, 'last Test ', 'kjakj@gmail.coiq', '03216546', 0, 'Male', 'views/img/users/247/247.jpg', 'Lst', 'as', 'Islam', '20211200015', '2021-12-12', '2021-12-12', 1, 1, 1, 165465.00, 0, 18, 0),
+(16, 'last Test ', 'kjakj@gmail.coiq', '03216546', 0, 'Male', 'views/img/users/643/643.jpg', 'Lst', 'as', 'Islam', '20211200016', '2021-12-12', '2021-12-12', 1, 1, 1, 165465.00, 0, 18, 0),
+(17, 'last Test ', 'kjakj@gmail.coiq', '03216546', 0, 'Male', 'views/img/users/949/949.jpg', 'Lst', 'as', 'Islam', '20211200017', '2021-12-12', '2021-12-12', 1, 1, 1, 165465.00, 0, 18, 0),
+(18, 'last Test ', 'kjakj@gmail.coiq', '03216546', 0, 'Male', 'views/img/users/708/708.jpg', 'Lst', 'as', 'Islam', '20211200018', '2021-12-12', '2021-12-12', 1, 1, 1, 165465.00, 0, 18, 0);
 
 -- --------------------------------------------------------
 
@@ -435,6 +442,36 @@ CREATE TABLE `emp_deg_log` (
   `effected_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `emp_deg_log`
+--
+
+INSERT INTO `emp_deg_log` (`id`, `employee_id`, `promotion_type`, `old_deg_id`, `new_deg_id`, `effected_date`) VALUES
+(1, 2, 'Yearly', 1, 1, '2021-12-13');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `emp_leave_log`
+--
+
+CREATE TABLE `emp_leave_log` (
+  `id` int(11) NOT NULL,
+  `employee_id` int(11) NOT NULL,
+  `leave_purposes` varchar(200) NOT NULL,
+  `leave_start_date` date NOT NULL,
+  `leave_end_date` date NOT NULL,
+  `remarks` varchar(100) NOT NULL,
+  `crt_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `emp_leave_log`
+--
+
+INSERT INTO `emp_leave_log` (`id`, `employee_id`, `leave_purposes`, `leave_start_date`, `leave_end_date`, `remarks`, `crt_date`) VALUES
+(1, 17, 'Sick Leave', '2021-12-12', '2021-12-14', 'ok', '2021-12-13 05:03:47');
+
 -- --------------------------------------------------------
 
 --
@@ -443,14 +480,21 @@ CREATE TABLE `emp_deg_log` (
 
 CREATE TABLE `emp_sall_log` (
   `id` int(11) NOT NULL,
-  `employee_id` int(11) NOT NULL,
+  `employee_id` int(11) DEFAULT NULL,
   `prv_salary` int(11) DEFAULT NULL,
   `present_salary` int(11) DEFAULT NULL,
   `incriments_salary` int(11) DEFAULT NULL,
   `incriments_type` varchar(200) DEFAULT NULL,
-  `effected_date` date NOT NULL,
+  `effected_date` date DEFAULT NULL,
   `remark` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `emp_sall_log`
+--
+
+INSERT INTO `emp_sall_log` (`id`, `employee_id`, `prv_salary`, `present_salary`, `incriments_salary`, `incriments_type`, `effected_date`, `remark`) VALUES
+(1, 1, 25550, 25550, 1000, 'Monthly', NULL, 'ok');
 
 -- --------------------------------------------------------
 
@@ -580,6 +624,12 @@ ALTER TABLE `emp_deg_log`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `emp_leave_log`
+--
+ALTER TABLE `emp_leave_log`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `emp_sall_log`
 --
 ALTER TABLE `emp_sall_log`
@@ -647,19 +697,25 @@ ALTER TABLE `designations`
 -- AUTO_INCREMENT for table `employee_info`
 --
 ALTER TABLE `employee_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `emp_deg_log`
 --
 ALTER TABLE `emp_deg_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `emp_leave_log`
+--
+ALTER TABLE `emp_leave_log`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `emp_sall_log`
 --
 ALTER TABLE `emp_sall_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `general_settings`

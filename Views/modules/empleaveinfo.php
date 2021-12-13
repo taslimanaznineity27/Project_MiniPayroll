@@ -1,17 +1,23 @@
 <div class="content-wrapper">
+  <?php
+  $item = 'id';
+  $value = $_GET['userId'];
+  $employeeList = EmployeeController::crtShowEmployeeList($item, $value);
+  // var_dump($employeeList);
+  ?>
   <section class="content-header">
-    <h1>Employee Management</h1>
+    <h1>User Management</h1>
     <ol class="breadcrumb">
       <li>
         <a href="home"><i class="fa fa-dashboard"></i> Home</a>
       </li>
-      <li class="active">User Management</li>
+      <li class="active">Employee Leave</li>
     </ol>
   </section>
   <section class="content">
     <div class="box">
       <div class="box-header with-border">
-        <h3 class="box-title">Title</h3>
+        <h3 class="box-title">Employee Leave</h3>
         <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
             <i class="fa fa-minus"></i>
@@ -22,77 +28,59 @@
         </div>
       </div>
       <div class="box-body">
-        iv class="row">
-        <div class="col">
-          <form method="post" action="{{ route('employee.leave.store') }}">
-            @csrf
-            <div class="row">
-              <div class="col-12">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <h5>Employee Name <span class="text-danger">*</span></h5>
-                      <div class="controls">
-                        <select name="employee_id" required="" class="form-control">
-                          <option value="" selected="" disabled="">Select Employee
-                            Name</option>
-                          @foreach ($employees as $employee)
-                          <option value="{{ $employee->id }}">
-                            {{ $employee->name }}
-                          </option>
-                          @endforeach
-                        </select>
-                      </div>
-                    </div>
-                  </div> <!-- // end col md-6 -->
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <h5>Start Date <span class="text-danger">*</span></h5>
-                      <div class="controls">
-                        <input type="date" name="leave_start_date" class="form-control">
-                      </div>
-                    </div>
-                  </div> <!-- // end col md-6 -->
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <h5>Leave Purpose <span class="text-danger">*</span></h5>
-                      <div class="controls">
-                        <select name="leave_purpose_id" id="leave_purpose_id" required="" class="form-control">
-                          <option value="" selected="" disabled="">Select Leave purpose</option>
-                          @foreach ($leave_purpose as $leave)
-                          <option value="{{ $leave->id }}">
-                            {{ $leave->leave_purpose }}
-                          </option>
-                          @endforeach
-                          <option value="0">New Purpose</option>
-                        </select>
-                        <input type="text" name="name" id="add_another" class="form-control" placeholder="Write Purpose" style="display: none; margin: 4px;">
-                      </div>
-                    </div>
-                  </div> <!-- // end col md-6 -->
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <h5>End Date <span class="text-danger">*</span></h5>
-                      <div class="controls">
-                        <input type="date" name="leave_end_date" class="form-control">
-                      </div>
-                    </div>
-                  </div> <!-- // end col md-6 -->
-                </div> <!-- // end row -->
-                <div class="text-xs-right">
-                  <input type="submit" class="btn btn-rounded btn-info mb-5" value="Submit">
-                </div>
+        <!-- //create emlpoyee incriment from here -->
+        <div class="row">
+          <form action="" method="post">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="">Employee Name</label>
+                <select name="employee_id" id="employee_id" class="form-control">
+                  <option value="<?php echo $employeeList['id']; ?>" readonly><?php echo $employeeList['full_name']; ?></option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="">Leave Type</label>
+                <select name="leave_purposes" id="leave_purposes" class="form-control">
+                  <option value="">Select Leave Type</option>
+                  <option value="Sick Leave">Sick Leave</option>
+                  <option value="Casual Leave">Casual Leave</option>
+                  <option value="Special Leave">Special Leave</option>
+                  <option value="Other Leave">Other Leave</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="">Leave Start Date</label>
+                <input type="date" class="form-control" name="leave_start_date" id="leave_start_date" placeholder="Enter Incriment Date">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="">Leave End Date</label>
+                <input type="date" class="form-control" name="leave_end_date" id="leave_end_date" placeholder="Enter Incriment Date">
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="">Remarks </label>
+                <input type="text" class="form-control" name="remarks" id="remarks" placeholder="Enter Incriment Date">
+              </div>
+            </div>
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            <?php
+            $createEmployeeLeave = new EmployeeleaveController();
+            $createEmployeeLeave->ctrCreateEmployeeLeave();
+            ?>
           </form>
         </div>
-        <!-- /.col -->
       </div>
-      <!-- /.row -->
-    </div>
-    <!-- /.box-body -->
-</div>
 
-</div>
-<div class="box-footer">Footer</div>
-</div>
-</section>
+      <div class="box-footer">Footer</div>
+    </div>
+  </section>
 </div>

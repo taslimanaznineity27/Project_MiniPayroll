@@ -119,7 +119,7 @@
                                                                                         } ?>><?php echo ($value["designation_name"]); ?>
                                         </option>
                                     <?php
-                                    }
+                                    } 
                                     ?>
 
                                 </select>
@@ -210,7 +210,7 @@
                             <?php
                             echo '
                                     <div class="col-xs-3">
-                                    <a href="index.php?route=empincriment&userId=' . $employeeList["id"] . '" class="btn btn-info btn-block btn-flat">Leave Application</a>                        
+                                    <a href="index.php?route=empleaveinfo&userId=' . $employeeList["id"] . '" class="btn btn-info btn-block btn-flat">Leave Application</a>                        
                                    </div>
                                  ';
                             ?>

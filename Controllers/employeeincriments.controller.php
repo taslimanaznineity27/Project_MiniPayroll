@@ -11,6 +11,8 @@
         static public function crtCreateEmployeeincriments()
         {
             if (isset($_POST["employee_id"]) && isset($_POST["incriments_salary"])) {
+
+          
                 
                 $table = "emp_sall_log";
 
@@ -22,7 +24,7 @@
                 "present_salary" => $_POST["present_salary"],
                 "prv_salary" => $_POST["present_salary"],
                 "remark" => $_POST["remark"]
-                );
+                ); 
                 
                 // var_dump($data);
                 $answer = EmployeeincrimentsModel::mdlCreateEmployeeincriments($table, $data);
@@ -36,12 +38,7 @@
                         </script>
                     ';
             } else {
-                echo '<br><div class="alert alert-danger">Some thing Wrong</div>';
-                echo '
-                        <script>
-                            windows.location = "addemployee"
-                        </script>
-                    ';
+                echo '<br><div class="alert alert-danger">Some thing Wrong</div>'; 
             }
             }
 
