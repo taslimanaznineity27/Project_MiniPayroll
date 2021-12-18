@@ -5,13 +5,14 @@
             <li>
                 <a href="home"><i class="fa fa-dashboard"></i> Home</a>
             </li>
-            <li class="active">User Management</li>
+            <li class="active">Employee Attendence Management</li>
         </ol>
     </section>
     <section class="content">
         <div class="box">
+
             <div class="box-header with-border">
-                <h3 class="box-title">Title</h3>
+                <h3 class="box-title">Employee Attendence Management</h3>
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                         <i class="fa fa-minus"></i>
@@ -21,109 +22,113 @@
                     </button>
                 </div>
             </div>
+
             <div class="box-body">
-                div class="row">
-                <div class="col">
-                    <form method="post" action="{{ route('employee.attn.store') }}">
-                        @csrf
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <h5>Attendance Date <span class="text-danger">*</span></h5>
-                                            <div class="controls">
-                                                <input type="date" name="atten_date" class="form-control">
+                <div class="row">
+                    <button class="btn btn-primary">
+                        <a href="empattview" style="color: white;">Employee Attendance List</a>
+                    </button>
+                    <div class="col">
+                        <form method="post">
+                            <div class="row">
+                                <div class="col-12">
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <h5>Attendance Date <span class="text-danger">*</span></h5>
+                                                <div class="controls">
+                                                    <input type="date" name="atten_date" class="form-control">
+                                                </div>
                                             </div>
+                                        </div> <!-- // End Col md 6 -->
+                                    </div>
+                                    <!-- // end Row  -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <table class="table table-bordered table-striped" style="width: 100%">
+                                                <thead>
+                                                    <tr>
+                                                        <th rowspan="1" class="text-center" style="vertical-align: middle;">Sl</th>
+                                                        <th rowspan="2" class="text-center" style="vertical-align: middle;">Employee List</th>
+                                                        <th rowspan="2" class="text-center" style="vertical-align: middle;">Login Logout
+                                                        </th>
+                                                        <th colspan="4" class="text-center" style="vertical-align: middle; width: 30%">Attendance
+                                                            Status</th>
+                                                    </tr>
+
+                                                </thead>
+
+                                                <tbody>
+                                                    <?php
+                                                    $item = null;
+                                                    $value = null;
+                                                    $employees = EmployeeController::crtShowEmployeeList($item, $value);
+                                                    // var_dump($employees);
+                                                    foreach ($employees as $key => $employee) {
+                                                        // var_dump($key);
+                                                        echo '<br>';
+                                                        var_dump($employee['id']);
+                                                    ?>
+                                                        <tr id="div<?php echo $key; ?>" class="text-center">
+                                                            <td class="text-center"><?php echo $key + 1; ?></td>
+                                                            <input type="hidden" name="employee_id[]" value="<?php echo $employee['id']; ?>">
+                                                            <td class="text-center"><?php echo $employee["full_name"]; ?></td>
+                                                            <td class="text-center">
+                                                                <input type="time" name="login[]" id="logout<?php echo $key; ?>" class=" form-control">
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <input type="time" name="logout[]" id="logout<?php echo $key; ?>" class="form-control">
+                                                            </td>
+
+                                                            <td colspan="2">
+                                                                <div class="switch-toggle  switch-candy">
+
+                                                                    <input name="atten_status<?php echo $key; ?>" type="radio" value="Present" id="present<?php echo $key; ?>" checked="checked">
+                                                                    <label for="present<?php echo $key; ?>">Present</label>
+
+                                                                    <input name="atten_status<?php echo $key; ?>" value="Leave" type="radio" id="leave<?php echo $key; ?>">
+                                                                    <label for="leave<?php echo $key; ?>">Leave</label>
+
+                                                                    <input name="atten_status<?php echo $key; ?>" value="Absent" type="radio" id="absent<?php echo $key; ?>">
+                                                                    <label for="absent<?php echo $key; ?>">Absent</label>
+
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </tbody>
+                                            </table>
                                         </div>
-                                    </div> <!-- // End Col md 6 -->
-                                </div> <!-- // end Row  -->
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <table class="table table-bordered table-striped" style="width: 100%">
-                                            <thead>
-                                                <tr>
-                                                    <th rowspan="2" class="text-center" style="vertical-align: middle;">Sl</th>
-                                                    <th rowspan="2" class="text-center" style="vertical-align: middle;">Employee List</th>
-                                                    <th rowspan="2" class="text-center" style="vertical-align: middle;">Employee Login Logout
-                                                    </th>
-                                                    <th colspan="3" class="text-center" style="vertical-align: middle; width: 30%">Attendance
-                                                        Status</th>
-                                                </tr>
-                                                {{-- <tr>
-                                                                <th class="text-center btn present_all"
-                                                                    style="display: table-cell; background-color: #000000">
-                                                                    Present</th>
-                                                                <th class="text-center btn leave_all"
-                                                                    style="display: table-cell; background-color: #000000">
-                                                                    Leave</th>
-
-                                                            </tr> --}}
-
-                                                {{-- <tr>
-
-
-                                                                <th class="text-center btn present_all"
-                                                                    style="display: table-cell; background-color: #000000">
-                                                                    Present</th>
-                                                                <th class="text-center btn leave_all"
-                                                                    style="display: table-cell; background-color: #000000">
-                                                                    Leave</th>
-                                                                <th class="text-center btn absent_all"
-                                                                    style="display: table-cell; background-color: #000000">
-                                                                    Absent</th>
-                                                            </tr> --}}
-                                            </thead>
-
-                                            <tbody>
-                                                @foreach ($employees as $key => $employee)
-                                                {{-- @dd($employee->id) --}}
-
-                                                <tr id="div{{ $employee->id }}" class="text-center">
-                                                    <input type="hidden" name="employee_id[]" value="{{ $employee->id }}">
-                                                    <td>{{ $key + 1 }}</td>
-                                                    <td>{{ $employee->name }}</td>
-                                                    <td colspan="3">
-                                                        <div class="switch-toggle switch-3 switch-candy">
-                                                            <label for="login">Login</label>
-                                                            <input name="login[]" type="datetime-local" id="login{{ $key }}">
-                                                            <label for="logout{{ $key }}">Logout</label>
-                                                            <input name="logout[]" type="datetime-local" id="logout{{ $key }}">
-                                                        </div>
-                                                    </td>
-                                                    <td colspan="2">
-                                                        <div class="switch-toggle switch-2 switch-candy">
-
-                                                            <input name="atten_status{{ $key }}" type="radio" value="Present" id="present{{ $key }}" checked="checked">
-                                                            <label for="present{{ $key }}">Present</label>
-
-                                                            <input name="atten_status{{ $key }}" value="Leave" type="radio" id="leave{{ $key }}">
-                                                            <label for="leave{{ $key }}">Leave</label>
-
-                                                            <input name="atten_status{{ $key }}" value="Absent" type="radio" id="absent{{ $key }}">
-                                                            <label for="absent{{ $key }}">Absent</label>
-
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div> <!-- // End Col md 12 -->
-                                </div> <!-- // end Row  -->
-                                <div class="text-xs-right">
-                                    <input type="submit" class="btn btn-rounded btn-info mb-5" value="Submit">
+                                        <!-- // End Col md 12 -->
+                                    </div>
+                                    <!-- // end Row  -->
+                                    <div class="text-xs-right">
+                                        <input type="submit" class="btn btn-rounded btn-info mb-5" value="Submit">
+                                    </div>
                                 </div>
-                    </form>
+                            </div>
+                            <?php
+                            $employeeAttend = new EmployeeAtteController();
+                            $employeeAttend->ctrCreateEmployeeAtte();
+                            ?>
+                        </form>
+                    </div>
+                    <!-- /.col -->
                 </div>
-                <!-- /.col -->
+                <!-- /.row -->
             </div>
-            <!-- /.row -->
+            <!-- /.box-body -->
         </div>
-        <!-- /.box-body -->
+
+    </section>
+    <div class="box-footer">
+        Footer
+    </div>
 </div>
+
 </div>
-<div class="box-footer">Footer</div>
-</div>
-</section>
+
 </div>

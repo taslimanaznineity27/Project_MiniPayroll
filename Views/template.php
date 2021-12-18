@@ -79,7 +79,7 @@ session_start();
           $_GET["route"] == 'empsalary'||
           $_GET["route"] == 'empmonthsell'||
           $_GET["route"] == 'empatten'||
-          $_GET["route"] == 'emppromotion'||
+          $_GET["route"] == 'empattview'||
           $_GET["route"] == 'emppromotion'||
           $_GET["route"] == 'emppromotion'||
           $_GET["route"] == 'emppromotion'||

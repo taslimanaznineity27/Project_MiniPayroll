@@ -101,10 +101,10 @@
           </li>
 
           <li>
-            <a href="#">
+            <a href="empatten">
               <i class="fa fa-circle"></i>
 
-              <span> ID Card</span>
+              <span>Enter Employee Attendance Data </span>
             </a>
           </li>
           <li>
