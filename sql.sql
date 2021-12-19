@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2021 at 06:16 AM
+-- Generation Time: Dec 19, 2021 at 10:32 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.21
 
@@ -377,6 +377,32 @@ INSERT INTO `designations` (`id`, `designation_name`, `company_id`, `department_
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `employee_attens`
+--
+
+CREATE TABLE `employee_attens` (
+  `id` int(11) NOT NULL,
+  `empoloyee_id` int(11) NOT NULL,
+  `atten_date` date DEFAULT NULL,
+  `login` datetime DEFAULT NULL,
+  `logout` datetime NOT NULL,
+  `atten_status` varchar(200) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `employee_attens`
+--
+
+INSERT INTO `employee_attens` (`id`, `empoloyee_id`, `atten_date`, `login`, `logout`, `atten_status`, `created_at`) VALUES
+(35, 1, '2021-12-02', '2021-12-19 02:28:00', '2021-12-19 14:31:00', 'Present', '2021-12-19 08:28:41'),
+(36, 2, '2021-12-02', '2021-12-19 14:31:00', '2021-12-16 14:28:00', 'Present', '2021-12-19 08:28:41'),
+(37, 1, '2021-12-20', '2021-12-20 18:29:00', '2021-12-20 14:29:00', 'Present', '2021-12-19 08:29:41'),
+(38, 2, '2021-12-20', '2021-12-19 17:29:00', '2021-12-16 14:29:00', 'Absent', '2021-12-19 08:29:41');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `employee_info`
 --
 
@@ -409,23 +435,7 @@ CREATE TABLE `employee_info` (
 
 INSERT INTO `employee_info` (`id`, `full_name`, `email`, `phone`, `address_name_id`, `gender`, `image`, `fname`, `mname`, `religion`, `id_no`, `dob`, `joining_date`, `company_id`, `dept_id`, `desig_id`, `salary`, `status`, `conttries_id`, `ref_emp_id`) VALUES
 (1, 'Demo Employee', 'Demo@gmail.com', '01564654654', 1, 'male', '', 'Demo Father name', 'Demo Mother Name', 'Islam', 'dep-test 01', '1990-12-02', '2021-12-02', 1, 1, 1, 25550.00, 1, 1, 14),
-(2, 'demo q', 'dsfjlk@gmail.com', '64164351', 0, 'Male', 'views/img/users/675/675.jpg', 'fdsh', 'dkjfl', 'Islam', '00002202112', '2021-12-04', '2021-12-04', 1, 1, 1, 2165.00, 0, 20, 0),
-(3, 'Mdnejigh', 'JFA@MDSKL.COM', '054165', 0, 'Male', 'views/img/users/700/700.jpg', 'sdj', 'HRD', 'Islam', '00002202112', '2021-12-04', '2021-12-04', 1, 1, 1, 5646.00, 0, 20, 0),
-(4, 'Mdnejigh', 'JFA@MDSKL.COM', '054165', 0, 'Male', 'views/img/users/478/478.jpg', 'sdj', 'HRD', 'Islam', '00002202112', '2021-12-04', '2021-12-04', 1, 1, 1, 5646.00, 0, 20, 0),
-(5, 'Mdnejigh', 'JFA@MDSKL.COM', '054165', 0, 'Male', 'views/img/users/171/171.jpg', 'sdj', 'HRD', 'Islam', '00002202112', '2021-12-04', '2021-12-04', 1, 1, 1, 5646.00, 0, 20, 0),
-(6, 'Mdnejigh', 'JFA@MDSKL.COM', '054165', 0, 'Male', 'views/img/users/837/837.jpg', 'sdj', 'HRD', 'Islam', '00001202112', '2021-12-04', '2021-12-04', 1, 1, 1, 5646.00, 0, 20, 0),
-(7, 'Demo Qu', 'sdkaj@fmai.com', '321654165', 0, 'Male', 'views/img/users/153/153.jpg', 'DEwbn', 'ade', 'Islam', '00007202112', '2021-12-04', '2021-12-04', 1, 1, 1, 5616.00, 0, 20, 0),
-(8, 'dEMO INFO', 'FAR@GMAIL.COM', '4548', 0, 'Male', 'views/img/users/313/313.jpg', 'sOME THING ', 'SAJA', 'Islam', '00008202112', '2021-12-04', '2021-12-04', 1, 1, 1, 4575.00, 0, 20, 0),
-(9, 'Another Info', 'kak@gmail.com', '013446464', 0, 'Male', 'views/img/users/906/906.jpg', 'another info', 'aniop', 'Islam', '00009202112', '2021-12-04', '2021-12-04', 1, 1, 1, 548564.00, 0, 20, 0),
-(10, 'Some thing are incrimnetst', 'asdasd@gmail.com', '03164', 0, 'Male', 'views/img/users/315/315.jpg', 'father name', 'motyher nane ', 'Hindu', '20211200010', '2021-12-11', '2021-12-11', 1, 1, 1, 254454.00, 0, 20, 0),
-(11, 'Eity ', 'admin@jakj.com', '012548', 0, 'Male', 'views/img/users/976/976.jpg', 'eity mother ', 'faher name ', 'Islam', '20211200011', '2021-12-12', '2021-12-11', 1, 1, 1, 1542.00, 0, 20, 0),
-(12, 'Test Inseart Model ', 'lka@ssda.com', '0332156', 0, 'Male', 'views/img/users/962/962.jpg', 'model', 'model Mothewr ', 'Islam', '20211200012', '2015-12-02', '2021-12-12', 1, 1, 1, 10000.00, 0, 4, 0),
-(13, 'final Test', 'lkjha@gmail.com', '032156465', 0, 'Male', 'views/img/users/440/440.jpg', 'fa', 'ma', 'Islam', '02010400013', '2011-12-31', '0201-04-25', 1, 1, 1, 2565.00, 0, 1, 0),
-(14, 'last Test ', 'kjakj@gmail.coiq', '03216546', 0, 'Male', 'views/img/users/488/488.jpg', 'Lst', 'as', 'Islam', '20211200014', '2021-12-12', '2021-12-12', 1, 1, 1, 165465.00, 0, 18, 0),
-(15, 'last Test ', 'kjakj@gmail.coiq', '03216546', 0, 'Male', 'views/img/users/247/247.jpg', 'Lst', 'as', 'Islam', '20211200015', '2021-12-12', '2021-12-12', 1, 1, 1, 165465.00, 0, 18, 0),
-(16, 'last Test ', 'kjakj@gmail.coiq', '03216546', 0, 'Male', 'views/img/users/643/643.jpg', 'Lst', 'as', 'Islam', '20211200016', '2021-12-12', '2021-12-12', 1, 1, 1, 165465.00, 0, 18, 0),
-(17, 'last Test ', 'kjakj@gmail.coiq', '03216546', 0, 'Male', 'views/img/users/949/949.jpg', 'Lst', 'as', 'Islam', '20211200017', '2021-12-12', '2021-12-12', 1, 1, 1, 165465.00, 0, 18, 0),
-(18, 'last Test ', 'kjakj@gmail.coiq', '03216546', 0, 'Male', 'views/img/users/708/708.jpg', 'Lst', 'as', 'Islam', '20211200018', '2021-12-12', '2021-12-12', 1, 1, 1, 165465.00, 0, 18, 0);
+(2, 'demo q', 'dsfjlk@gmail.com', '64164351', 0, 'Male', 'views/img/users/675/675.jpg', 'fdsh', 'dkjfl', 'Islam', '00002202112', '2021-12-04', '2021-12-04', 1, 1, 1, 2165.00, 0, 20, 0);
 
 -- --------------------------------------------------------
 
@@ -470,7 +480,11 @@ CREATE TABLE `emp_leave_log` (
 --
 
 INSERT INTO `emp_leave_log` (`id`, `employee_id`, `leave_purposes`, `leave_start_date`, `leave_end_date`, `remarks`, `crt_date`) VALUES
-(1, 17, 'Sick Leave', '2021-12-12', '2021-12-14', 'ok', '2021-12-13 05:03:47');
+(1, 17, 'Sick Leave', '2021-12-12', '2021-12-14', 'ok', '2021-12-13 05:03:47'),
+(2, 17, 'Sick Leave', '2021-12-12', '2021-12-14', 'ok', '2021-12-13 05:49:08'),
+(3, 18, 'Special Leave', '2021-12-13', '2021-12-20', 'FOR TEST', '2021-12-18 03:53:26'),
+(4, 18, 'Special Leave', '2021-12-13', '2021-12-20', 'FOR TEST', '2021-12-18 05:42:56'),
+(5, 2, 'Sick Leave', '2021-12-20', '2021-12-20', 'ওকে', '2021-12-19 08:36:43');
 
 -- --------------------------------------------------------
 
@@ -612,6 +626,12 @@ ALTER TABLE `designations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `employee_attens`
+--
+ALTER TABLE `employee_attens`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `employee_info`
 --
 ALTER TABLE `employee_info`
@@ -694,6 +714,12 @@ ALTER TABLE `designations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `employee_attens`
+--
+ALTER TABLE `employee_attens`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+
+--
 -- AUTO_INCREMENT for table `employee_info`
 --
 ALTER TABLE `employee_info`
@@ -709,7 +735,7 @@ ALTER TABLE `emp_deg_log`
 -- AUTO_INCREMENT for table `emp_leave_log`
 --
 ALTER TABLE `emp_leave_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `emp_sall_log`
