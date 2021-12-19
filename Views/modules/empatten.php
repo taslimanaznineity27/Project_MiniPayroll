@@ -32,7 +32,6 @@
                         <form method="post">
                             <div class="row">
                                 <div class="col-12">
-
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -66,34 +65,31 @@
                                                     $employees = EmployeeController::crtShowEmployeeList($item, $value);
                                                     // var_dump($employees);
                                                     foreach ($employees as $key => $employee) {
-                                                        // var_dump($key);
-                                                        echo '<br>';
-                                                        var_dump($employee['id']);
                                                     ?>
                                                         <tr id="div<?php echo $key; ?>" class="text-center">
-                                                            <td class="text-center"><?php echo $key + 1; ?></td>
-                                                            <input type="hidden" name="employee_id[]" value="<?php echo $employee['id']; ?>">
-                                                            <td class="text-center"><?php echo $employee["full_name"]; ?></td>
-                                                            <td class="text-center">
-                                                                <input type="time" name="login[]" id="logout<?php echo $key; ?>" class=" form-control">
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <input type="time" name="logout[]" id="logout<?php echo $key; ?>" class="form-control">
-                                                            </td>
-
-                                                            <td colspan="2">
-                                                                <div class="switch-toggle  switch-candy">
-
-                                                                    <input name="atten_status<?php echo $key; ?>" type="radio" value="Present" id="present<?php echo $key; ?>" checked="checked">
-                                                                    <label for="present<?php echo $key; ?>">Present</label>
-
-                                                                    <input name="atten_status<?php echo $key; ?>" value="Leave" type="radio" id="leave<?php echo $key; ?>">
-                                                                    <label for="leave<?php echo $key; ?>">Leave</label>
-
-                                                                    <input name="atten_status<?php echo $key; ?>" value="Absent" type="radio" id="absent<?php echo $key; ?>">
-                                                                    <label for="absent<?php echo $key; ?>">Absent</label>
-
+                                                            <input type="hidden" name="empoloyee_id[]" value="<?php echo $employee["id"]; ?>">
+                                                            <td><?php echo $key + 1; ?></td>
+                                                            <td><?php echo $employee["full_name"]; ?></td>
+                                                            <td colspan="3">
+                                                                <div class="switch-toggle switch-3 switch-candy">
+                                                                    <label for="login">Login</label>
+                                                                    <input name="login[]" type="datetime-local" id="login<?php echo $key; ?>">
+                                                                    <label for="logout<?php echo $key; ?>">Logout</label>
+                                                                    <input name="logout[]" type="datetime-local" id="logout<?php echo $key; ?>">
                                                                 </div>
+                                                            </td>
+                                                            <td colspan="2">
+                                                                <select name="atten_status[]" id="atten_status<?php echo $key; ?>" class="form-control">
+                                                                    <option value="">Select Status</option>
+                                                                    <option value="Present">Present</option>
+                                                                    <option value="Absent">Absent</option>
+                                                                    <option value="Late">Late</option>
+                                                                    <option value="Early">Early</option>
+                                                                </select>
+
+
+
+                                                                
                                                             </td>
                                                         </tr>
                                                     <?php
@@ -111,6 +107,7 @@
                                 </div>
                             </div>
                             <?php
+                            // echo "working";
                             $employeeAttend = new EmployeeAtteController();
                             $employeeAttend->ctrCreateEmployeeAtte();
                             ?>

@@ -11,8 +11,8 @@
   <section class="content">
     <div class="box">
       <div class="box-header with-border">
-        <button class="btn btn-primary" data-toggle="modal" data-target="#addUser">
-          Add Designations
+        <button class="btn btn-primary">
+          <a href="adddesign" style="color: white;"> Add Designations</a>
         </button>
       </div>
       <div class="box-body">
@@ -28,14 +28,14 @@
             </tr>
           </thead>
           <tbody>
-          <?php
-          $item = null;
-          $value = null;
-          $designations = DesignationsController::ctrShowDesignations($item, $value);
-          // var_dump($designations);
+            <?php
+            $item = null;
+            $value = null;
+            $designations = DesignationsController::ctrShowDesignations($item, $value);
+            // var_dump($designations);
 
-          foreach ($designations as $key => $value) {
-            echo '<tr>
+            foreach ($designations as $key => $value) {
+              echo '<tr>
               <td>' . ($key + 1) . '</td>
               <td>' . $value["designation_name"] . '</td>
               <td>' . $value["company_id"] . '</td>
@@ -48,10 +48,10 @@
                 </div>
               </td>
             </tr>';
-          }
+            }
 
 
-          ?>
+            ?>
           </tbody>
 
         </table>

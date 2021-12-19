@@ -80,10 +80,13 @@ session_start();
           $_GET["route"] == 'empmonthsell'||
           $_GET["route"] == 'empatten'||
           $_GET["route"] == 'empattview'||
-          $_GET["route"] == 'emppromotion'||
-          $_GET["route"] == 'emppromotion'||
-          $_GET["route"] == 'emppromotion'||
-          $_GET["route"] == 'emppromotion'||
+          $_GET["route"] == 'addcompany'||
+          $_GET["route"] == 'adddept'||
+          $_GET["route"] == 'addlocation'||
+          $_GET["route"] == 'adddesign'
+          ||
+          $_GET["route"] == 'addannounc' ||
+          
           $_GET["route"] == 'logout'
         ) {
           include "modules/" . $_GET["route"] . ".php";

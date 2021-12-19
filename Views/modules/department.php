@@ -11,8 +11,8 @@
   <section class="content">
     <div class="box">
       <div class="box-header with-border">
-        <button class="btn btn-primary" data-toggle="modal" data-target="#addUser">
-          Add Department
+        <button class="btn btn-primary">
+          <a href="adddept" style="color: white;"> Add Department</a>
         </button>
       </div>
       <div class="box-body">
@@ -28,19 +28,19 @@
             </tr>
           </thead>
           <tbody>
-          <?php
+            <?php
             $item = null;
             $value = null;
 
-            $departments = DepartmentController::ctrShowDepartments($item,$value);
+            $departments = DepartmentController::ctrShowDepartments($item, $value);
             // var_dump($departments);
             foreach ($departments as $key => $department) {
               echo '<tr>
-                      <td>'.($key+1).'</td>
-                      <td>'.$department["department_name"].'</td>
-                      <td>'.$department["company_id"].'</td>
-                      <td>'.$department["department_head"].'</td>
-                      <td>'.$department["is_active"].'</td>
+                      <td>' . ($key + 1) . '</td>
+                      <td>' . $department["department_name"] . '</td>
+                      <td>' . $department["company_id"] . '</td>
+                      <td>' . $department["department_head"] . '</td>
+                      <td>' . $department["is_active"] . '</td>
                       <td>
                         <div class="btn-group"
                           <button class="btn btn-warning btnEditDepartment" ><i class="fa fa-pencil"></i></button>
@@ -51,7 +51,7 @@
             }
 
 
-          ?>
+            ?>
 
 
           </tbody>
@@ -60,7 +60,7 @@
       </div>
 
 
-      
+
       <div class="box-footer">Footer</div>
     </div>
   </section>

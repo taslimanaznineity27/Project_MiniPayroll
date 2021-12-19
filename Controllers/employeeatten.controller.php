@@ -7,11 +7,8 @@ class EmployeeAtteController{
         return $answer;  
     }
     static public function ctrCreateEmployeeAtte(){
-        if(isset($_POST["employee_id"])){
-            $countEmployee = count($_POST["employee_id"]);
-            echo $countEmployee;
-            echo "<br>";
-            echo $_POST["atten_date"];
+        if(isset($_POST["empoloyee_id"]) && isset($_POST["atten_date"]) && isset($_POST["login"]) && isset($_POST["logout"]) && isset($_POST["atten_status"])){
+            $countEmployee = count($_POST["empoloyee_id"]);
             for ($i = 0; $i < $countEmployee; $i++) {
                 $data = array(
                     "empoloyee_id" => $_POST["empoloyee_id"][$i],
@@ -20,7 +17,7 @@ class EmployeeAtteController{
                     "logout" => $_POST["logout"][$i],
                     "atten_status" => $_POST["atten_status"][$i]
                 );
-                var_dump($data);
+                // var_dump($data);
                 $table = "employee_attens";
                 $answer = EmployeeAtteModel::mdlCreateEmployeeAtte($table, $data);
                 if ($answer == "ok") {
@@ -53,6 +50,9 @@ class EmployeeAtteController{
                     </script>';
                 }
             }
+        }
+        else{
+            // var_dump($_POST);
         }
         
     } 

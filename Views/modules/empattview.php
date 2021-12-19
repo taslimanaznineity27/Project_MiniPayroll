@@ -28,7 +28,7 @@
                             <tr>
                                 <th width="5%">SL</th>
                                 <th>Name</th>
-                                <th>Employee Id</th>
+                                <th>Employee ID</th>
                                 <th>Date </th>
                                 <th>Login </th>
                                 <th>Log Out </th>

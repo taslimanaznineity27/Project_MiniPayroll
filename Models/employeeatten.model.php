@@ -25,7 +25,7 @@ class EmployeeAtteModel{
     }
     static public function mdlCreateEmployeeAtte($table, $data){
         $sql = "INSERT INTO $table (empoloyee_id, atten_date, login, logout, atten_status) VALUES (:empoloyee_id, :atten_date, :login, :logout, :atten_status)";
-
+        // var_dump($data);
         $stmt = Connection::connect()->prepare($sql);
 
         $stmt->bindParam(":empoloyee_id", $data["empoloyee_id"], PDO::PARAM_STR);
